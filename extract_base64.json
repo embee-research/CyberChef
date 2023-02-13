@@ -1,0 +1,21 @@
+# Extracts base64 blobs from input data, lists the base64 decoded blobs in output
+
+
+#### Clean Json
+[
+  { "op": "Regular expression",
+    "args": ["User defined", "[a-z0-9\\=\\+\\/]{100,}", true, true, false, false, false, false, "List matches"] },
+  { "op": "Fork",
+    "args": ["\\n", "\\n", false] },
+  { "op": "From Base64",
+    "args": ["A-Za-z0-9+/=", true, false] },
+  { "op": "Remove null bytes",
+    "args": [] }
+]
+
+
+### Chef Format
+Regular_expression('User defined','[a-z0-9\\=\\+\\/]{100,}',true,true,false,false,false,false,'List matches')
+Fork('\\n','\\n',false)
+From_Base64('A-Za-z0-9+/=',true,false)
+Remove_null_bytes()
