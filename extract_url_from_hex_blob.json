@@ -26,3 +26,7 @@ Find_/_Replace({'option':'Regex','string':','},' ',true,false,true,false)
 From_Hex('Auto')
 Merge(true)
 Extract_URLs(false,true,true)
+
+
+# Link
+https://gchq.github.io/CyberChef/#recipe=Regular_expression('User%20defined','(%5Ba-f0-9%5D%7B2%7D%5B%5C%5Cs,%5D*)%7B15,%7D',true,true,false,false,false,false,'List%20matches')Fork('%5C%5Cn','%5C%5Cn',false)Find_/_Replace(%7B'option':'Regex','string':','%7D,'%20',true,false,true,false)From_Hex('Auto')Merge(true)Extract_URLs(false,true,true)
