@@ -1,0 +1,28 @@
+# Extracts all blobs of Hex data, then decodes and extracts unique URL's
+# (eg from blobs that look like $aXoTDkd = '0d 0a 40 65 63 68 6f 20 6f')
+
+
+# Clean Json
+[
+  { "op": "Regular expression",
+    "args": ["User defined", "([a-f0-9]{2}[\\s,]*){15,}", true, true, false, false, false, false, "List matches"] },
+  { "op": "Fork",
+    "args": ["\\n", "\\n", false] },
+  { "op": "Find / Replace",
+    "args": [{ "option": "Regex", "string": "," }, " ", true, false, true, false] },
+  { "op": "From Hex",
+    "args": ["Auto"] },
+  { "op": "Merge",
+    "args": [true] },
+  { "op": "Extract URLs",
+    "args": [false, true, true] }
+]
+
+
+# Chef Format
+Regular_expression('User defined','([a-f0-9]{2}[\\s,]*){15,}',true,true,false,false,false,false,'List matches')
+Fork('\\n','\\n',false)
+Find_/_Replace({'option':'Regex','string':','},' ',true,false,true,false)
+From_Hex('Auto')
+Merge(true)
+Extract_URLs(false,true,true)
