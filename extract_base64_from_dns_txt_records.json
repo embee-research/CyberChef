@@ -1,0 +1,4 @@
+Fork('\\n','\\n',false)
+DNS_over_HTTPS('https://dns.google.com/resolve','TXT',false,false)
+Regular_expression('User defined','[a-zA-Z0-9\\=\\+\\/]{50,}',true,true,false,false,false,false,'List matches')
+From_Base64('A-Za-z0-9+/=',true,false)
