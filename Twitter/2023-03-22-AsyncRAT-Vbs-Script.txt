@@ -1,0 +1,48 @@
+
+Malware Hash: 	07e25cb7d427ac047f53b3badceacf6fc5fb395612ded5d3566a09800499cd7d
+Link: https://bazaar.abuse.ch/sample/26c9f29fceaee8b13ba0fe4d7170f50c8046e43e11e461a43ce92b22d8e24bf5/
+PW: infected
+
+Recipes can be imported into CyberChef
+
+# Part 1: Decimal Decoding (Link)
+https://gchq.github.io/CyberChef/#recipe=Subsection('%22?%26?chr%5C%5C(%5C%5Cd%2B%5C%5C)%26?%22?',true,true,false)Regular_expression('User%20defined','%5C%5Cd%2B',true,true,false,false,false,false,'List%20matches')From_Decimal('Space',false)Merge(true)Find_/_Replace(%7B'option':'Regex','string':'%22%5B%5C%5C%2B%26%5D%22'%7D,'',true,false,true,false)Syntax_highlighter('auto%20detect')
+
+# Part 1: Decimal Decoding (Recipe)
+
+Subsection('"?&?chr\\(\\d+\\)&?"?',true,true,false)
+Regular_expression('User defined','\\d+',true,true,false,false,false,false,'List matches')
+From_Decimal('Space',false)
+Merge(true)
+Find_/_Replace({'option':'Regex','string':'"[\\+&]"'},'',true,false,true,false)
+Syntax_highlighter('auto detect')
+
+
+# Part 2: Removing String Reverse (Link)
+https://gchq.github.io/CyberChef/#recipe=Subsection('StrReverse%5C%5C(%22.%7B10,50%7D%22%5C%5C)',true,true,false)Regular_expression('User%20defined','%22.*%22',true,true,false,false,false,false,'List%20matches')Reverse('Character')Merge(true)Syntax_highlighter('vbscript')
+
+
+# Part 2: Removing String Reverse (Recipe) 
+
+Subsection('StrReverse\\(".{10,50}"\\)',true,true,false)
+Regular_expression('User defined','".*"',true,true,false,false,false,false,'List matches')
+Reverse('Character')
+Merge(true)
+Syntax_highlighter('vbscript')
+
+
+# Part 3: Removing Replace Operations (Link)
+https://gchq.github.io/CyberChef/#recipe=Subsection('Replace%5C%5C(%22%5B%5E,%22%5D%2B%22,%22%5B%5E,%22%5D%2B%22,%22.%22%5C%5C)',true,true,false)Escape_string('Special%20chars','Single',false,true,false)Register('Replace%5C%5C((%22%5B%5E,%22%5D%2B%22),%22(%5B%5E,%22%5D%2B)%22,%22(.)%22%5C%5C)',true,false,false)Regular_expression('User%20defined','$R0',true,true,false,false,false,false,'List%20matches')Find_/_Replace(%7B'option':'Regex','string':'$R1'%7D,'$R2',true,false,false,true)Merge(true)Syntax_highlighter('vbscript')
+
+# Part 3: Removing Replace Operations (Recipe)
+
+Subsection('Replace\\("[^,"]+","[^,"]+","."\\)',true,true,false)
+Escape_string('Special chars','Single',false,true,false)
+Register('Replace\\(("[^,"]+"),"([^,"]+)","(.)"\\)',true,false,false)
+Regular_expression('User defined','$R0',true,true,false,false,false,false,'List matches')
+Find_/_Replace({'option':'Regex','string':'$R1'},'$R2',true,false,false,true)
+Merge(true)
+Syntax_highlighter('vbscript')
+
+
+
